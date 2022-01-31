@@ -1,22 +1,13 @@
----
-```{r, echo=FALSE}
-knitr::opts_chunk$set(
-  fig.path ="README_figs/README-"
-)
-
-```
-
 title: "MATH1324 Assignment 1"
 subtitle: Modeling Body Measurements
 output:
-  html_notebook:
-  keep_md: true
+  output: rmarkdown::github_document
 ---
 
 ## Student Details
 
 
-Thomas Le (s3491287)
+Thomas Le 
 
 
 ## Problem Statement
