@@ -1,0 +1,298 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={MATH1324 Assignment 1},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{MATH1324 Assignment 1}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \subtitle{Modeling Body Measurements}
+  \author{}
+    \preauthor{}\postauthor{}
+    \date{}
+    \predate{}\postdate{}
+  
+
+\begin{document}
+\maketitle
+
+\hypertarget{student-details}{%
+\subsection{Student Details}\label{student-details}}
+
+Student Name (s3491287)
+
+\hypertarget{problem-statement}{%
+\subsection{Problem Statement}\label{problem-statement}}
+
+The `che.de' was the chosen variable, which is the respondent's chest
+depth in centimeters, measured at nipple level, mid-expiration for both
+male and females. The empirical data for chest depth will be used to
+provide parameters of a normal distribution function; mean and standard
+deviation. This will be then plotted to verify if it fits a normal
+distribution curve.
+
+Write a clear and concise problem statement that guides your
+investigation. Explain which variable you choose and outline the
+approaches taken for normal distribution fitting.
+
+\hypertarget{load-packages}{%
+\subsection{Load Packages}\label{load-packages}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tidyr)}
+\KeywordTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(readxl)}
+\KeywordTok{library}\NormalTok{(MASS)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'MASS' was built under R version 3.6.1
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'MASS'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     select
+\end{verbatim}
+
+\hypertarget{data}{%
+\subsection{Data}\label{data}}
+
+Import the body measurements data and prepare it for analysis. Show your
+code.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# This is a chunk for your Data section. }
+\NormalTok{bdims <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"bdims.xlsx"}\NormalTok{)}
+\KeywordTok{class}\NormalTok{(bdims}\OperatorTok{$}\NormalTok{che.de)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "numeric"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(bdims}\OperatorTok{$}\NormalTok{sex)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "numeric"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bdims}\OperatorTok{$}\NormalTok{sex <-}\StringTok{ }\NormalTok{bdims}\OperatorTok{$}\NormalTok{sex }\OperatorTok{%>%}\StringTok{ }\KeywordTok{factor}\NormalTok{(}
+  \DataTypeTok{levels =} \KeywordTok{c}\NormalTok{(}\StringTok{'0'}\NormalTok{, }\StringTok{'1'}\NormalTok{),}
+  \DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"female"}\NormalTok{, }\StringTok{"male"}\NormalTok{))}
+\KeywordTok{class}\NormalTok{(bdims}\OperatorTok{$}\NormalTok{sex)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "factor"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{levels}\NormalTok{(bdims}\OperatorTok{$}\NormalTok{sex)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "female" "male"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{males <-}\StringTok{ }\NormalTok{bdims }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(sex }\OperatorTok{==}\StringTok{ "male"}\NormalTok{)}
+\NormalTok{females <-}\StringTok{ }\NormalTok{bdims }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(sex }\OperatorTok{==}\StringTok{ "female"}\NormalTok{)}
+
+\NormalTok{males_chest <-}\StringTok{ }\NormalTok{males[}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{25}\NormalTok{)]}
+\NormalTok{females_chest <-}\StringTok{ }\NormalTok{females[}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{25}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+Imported data using readxl package. Assigned the variable `sex' as a
+factor and labeled relevant names. The data was then filtered into males
+and females. Then again selected for chest depth for both males and
+females separately.
+
+\hypertarget{summary-statistics}{%
+\subsection{Summary Statistics}\label{summary-statistics}}
+
+Calculate descriptive statistics (i.e., mean, median, standard
+deviation, first and third quartile, interquartile range, minimum and
+maximum values) of the selected measurement grouped by sex.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# This is a chunk for your Summary Statistics section. }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{distribution-fitting}{%
+\subsection{Distribution Fitting}\label{distribution-fitting}}
+
+Compare the empirical distribution of selected body measurement to a
+normal distribution separately in men and in women. You need to do this
+visually by plotting the histogram with normal distribution overlay.
+Show your code.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# This is a chunk for your Distribution Fitting section. }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{interpretation}{%
+\subsection{Interpretation}\label{interpretation}}
+
+Going back to your problem statement, what insight has been gained from
+the investigation? Discuss the extent to how your theoretical normal
+distribution fits the empirical data.
+
+
+\end{document}
